@@ -10,10 +10,30 @@ namespace Commands
         public int times { get; private set; }
         public List<Command> commands { get; private set; }
 
-        public CRepeat(int times, List<Command> commands)
+        public CRepeat(int times)
         {
             this.times = times;
-            this.commands = commands;
+            this.commands = new List<Command>();
+        }
+
+        public void AddCommand(Command command)
+        {
+            commands.Add(command);
+        }
+
+        public int GetDepth()
+        {
+            int maxDepth = 0;
+            foreach (Command command in commands)
+            {
+                if (command is CRepeat cRepeat)
+                {
+                    int depth = cRepeat.GetDepth();
+                    if (depth > maxDepth)
+                        maxDepth = depth;
+                }
+            }
+            return maxDepth + 1;
         }
 
         public void Run(Character character)

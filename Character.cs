@@ -50,7 +50,7 @@ namespace Character
 
         public override string ToString()
         {
-            return $"({position.X}, {position.Y}) facing {direction}";
+            return $"({position.X},{position.Y}) facing {direction}";
         }
     }
 }
