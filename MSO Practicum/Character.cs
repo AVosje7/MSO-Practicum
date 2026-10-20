@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Xunit;
 
 namespace MSOPracticum
 {
@@ -51,4 +52,10 @@ namespace MSOPracticum
             return $"({position.X},{position.Y}) facing {direction}";
         }
     }
+
+    #if DEBUG
+    #region Tests
+
+    #endregion
+    #endif
 }
