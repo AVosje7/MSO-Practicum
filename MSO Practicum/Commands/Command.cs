@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Character;
 
-namespace Commands
+namespace MSOPracticum
 {
     public interface Command
     {
-        public Run(Character character);
+        public void Run(Character character);
 
         public String ToString();
     }

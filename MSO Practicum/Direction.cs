@@ -1,4 +1,4 @@
-namespace Character
+namespace MSOPracticum
 {
     public enum Direction
     {

@@ -1,29 +1,33 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace FileReader
+namespace MSOPracticum
 {
     public class FileReader
     {
-        private File file;
-        
+    
+        String filePath;
         public FileReader()
-        {}
+        {
+            filePath = "";
+        }
 
         public void LoadFile(String filePath)
         {
-            file = new File(filePath);
+            this.filePath = filePath;
         }
 
         public List<String> GetLines()
         {
             List<String> lines = new List<String>();
             String line;
-            while ((line = file.ReadLine()) != null)
+            using (StreamReader reader = new StreamReader(this.filePath))
             {
-                lines.Add(line);
+                while ((line = reader.ReadLine()) != null)
+                {
+                    lines.Add(line);
+                }
             }
             return lines;
         }

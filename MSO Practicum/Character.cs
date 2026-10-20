@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Drawing;
 
-namespace Character
+namespace MSOPracticum
 {
     public class Character
     {
@@ -22,16 +20,16 @@ namespace Character
             switch (direction)
             {
                 case Direction.East:
-                    position.X += amount;
+                    position = new Point(position.X + amount, position.Y);
                     break;
                 case Direction.South:
-                    position.Y += amount;
+                    position = new Point(position.X, position.Y + amount);
                     break;
                 case Direction.West:
-                    position.X -= amount;
+                    position = new Point(position.X - amount, position.Y);
                     break;
                 case Direction.North:
-                    position.Y -= amount;
+                    position = new Point(position.X, position.Y - amount);
                     break;
             }
         }

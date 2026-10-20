@@ -1,28 +1,28 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using interpreter;
-using CommandIO;
-using Grid;
 
-namespace Main
+namespace MSOPracticum
 {
-    public class Main
+    public class Program
     {
-        private interpreter interpreter;
+        private Interpreter interpreter;
         private Grid grid;
 
-        public Main(String[] args)
+        static void Main(String[] args)
         {
-            interpreter = new interpreter();
-            grid = new Grid();
-            
+            Program program = new Program();
+
             bool exit = false;
             while (!exit)
             {
-                exit = Run();
+                exit = program.Run();
             }            
+        }
+
+        public Program()
+        {
+            interpreter = new Interpreter();
+            grid = new Grid();
         }
 
         public bool Run()
@@ -59,8 +59,6 @@ namespace Main
             return CommandInput.GetInput();
         }
 
-        public 
-
         public void LoadFile(String filePath)
         {
             interpreter.LoadFile(filePath);
@@ -68,7 +66,7 @@ namespace Main
 
         public List<String> ExecuteCommands()
         {
-            grid.executeCommands(interpreter.commands);
+            return grid.ExecuteCommands(interpreter.commands);
         }
 
         public List<int> CalculateMetrics()
@@ -76,7 +74,7 @@ namespace Main
             return interpreter.GetMetrics();
         }
 
-        public void WriteSteps(list<String> steps, String endState)
+        public void WriteSteps(List<String> steps, String endState)
         {
             CommandOutput.WriteSteps(steps, endState);
         }

@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CommandIO
+namespace MSOPracticum
 {
     public static class CommandInput
     {
@@ -30,16 +28,16 @@ namespace CommandIO
             switch (filename.ToLower())
             {
                 case "basic":
-                    processedInput.Add("Programs/Basic.txt");
+                    processedInput.Add(Path.Combine(AppContext.BaseDirectory, "Programs", "Basic.txt"));;
                     break;
                 case "advanced":
-                    processedInput.Add("Programs/Advanced.txt");
+                    processedInput.Add(Path.Combine(AppContext.BaseDirectory, "Programs", "Advanced.txt"));
                     break;
                 case "expert":
-                    processedInput.Add("Programs/Expert.txt");
+                    processedInput.Add(Path.Combine(AppContext.BaseDirectory, "Programs", "Expert.txt"));
                     break;
                 default:
-                    processedInput.Add("Programs/" + filename + ".txt");
+                    processedInput.Add(Path.Combine(AppContext.BaseDirectory, "Programs", filename + ".txt"));
                     break;
             }
 

@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Interpreter
+namespace MSOPracticum
 {
     public class Interpreter
     {
@@ -14,6 +12,7 @@ namespace Interpreter
         public Interpreter()
         {
             fileReader = new FileReader();
+            lines = new List<String>();
             commands = new List<Command>();
         }
 
@@ -84,13 +83,13 @@ namespace Interpreter
             {
                 case "Move":
                     int amount = int.Parse(parts[1]);
-                    return new MoveCommand(amount);
+                    return new CMove(amount);
                 case "Turn":
                     bool clockwise = parts[1] == "right";
-                    return new TurnCommand(clockwise);
+                    return new CTurn(clockwise);
                 case "Repeat":
                     int times = int.Parse(parts[1]);
-                    return new RepeatCommand(times);
+                    return new CRepeat(times);
                 default:
                     return null;
             }

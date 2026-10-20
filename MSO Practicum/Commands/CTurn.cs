@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Character;
 
-namespace Commands
+namespace MSOPracticum
 {
-    public class CTurn
+    public class CTurn : Command
     {
         public bool clockwise { get; private set; }
 

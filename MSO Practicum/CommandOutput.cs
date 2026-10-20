@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CommandIO
+namespace MSOPracticum
 {
     public static class CommandOutput
     {
-        public void WriteSteps(List<String> steps, String endState)
+        public static void WriteSteps(List<String> steps, String endState)
         {
             Console.WriteLine(FormatSteps(steps));
             Console.WriteLine("End state " + endState + ".");
         }
 
-        public void WriteMetrics(List<int> metrics)
+        public static void WriteMetrics(List<int> metrics)
         {
             Console.WriteLine("Metrics:");
             foreach (int metric in metrics)
@@ -22,7 +20,7 @@ namespace CommandIO
             }
         }
 
-        private String FormatSteps(List<String> steps)
+        private static String FormatSteps(List<String> steps)
         {
             return String.Join(", ", steps);
         }

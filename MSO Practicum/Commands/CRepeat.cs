@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Character;
 
-namespace Commands
+namespace MSOPracticum
 {
-    public class CRepeat
+    public class CRepeat : Command
     {
         public int times { get; private set; }
         public List<Command> commands { get; private set; }

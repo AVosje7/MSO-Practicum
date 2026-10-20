@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Character;
-using Commands;
+using System.Drawing;
 
-namespace Grid
+namespace MSOPracticum
 {
     public class Grid
     {
