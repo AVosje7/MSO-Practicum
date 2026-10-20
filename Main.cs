@@ -7,6 +7,15 @@ namespace Main
 {
     public class Main
     {
-        
+        private interpreter interpreter;
+        private Grid grid;
+
+        public Main(String[] args)
+        {
+            interpreter = new interpreter();
+            grid = new Grid();
+
+            
+        }
     }
 }
