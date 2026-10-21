@@ -56,30 +56,23 @@ namespace MSOPracticum
             List<Command> commands = new List<Command>();
             for (int i = 0; i < lines.Count; i++)
             {
-                Command command = InterpretLine(lines[i]);
+                Command command = InterpretLine(lines[i], lines, i);
                 if (command != null)
                 {
                     commands.Add(command);
 
                     if (command is CRepeat cRepeat)
                     {
-                        while (i + 1 < lines.Count && lines[i + 1].StartsWith("    ")) // 4 spaces for indentation
-                        {
-                            i++;
-                            Command innerCommand = InterpretLine(lines[i]);
-                            if (innerCommand != null)
-                            {
-                                cRepeat.AddCommand(innerCommand);
-                            }
-                        }
+                        i += cRepeat.commands.Count(); // Skip the lines of the repeat body
                     }
                 }
             }
             return commands;
         }
 
-        private Command InterpretLine(String line)
+        private Command InterpretLine(String line, List<String> lines, int currentIndex)
         {
+            int indentationLevel = IndentationLevel(line);
             String[] parts = line.Trim().Split(' ');
             String commandName = parts[0];
             switch (commandName)
@@ -92,11 +85,47 @@ namespace MSOPracticum
                     return new CTurn(clockwise);
                 case "Repeat":
                     int times = int.Parse(parts[1]);
-                    return new CRepeat(times);
+                    CRepeat cRepeat = new CRepeat(times);
+                    while (currentIndex + 1 < lines.Count && IndentationLevel(lines[currentIndex + 1]) > indentationLevel)
+                    {
+                        currentIndex++;
+                        Command innerCommand = InterpretLine(lines[currentIndex], lines, currentIndex);
+                        if (innerCommand != null)
+                        {
+                            cRepeat.AddCommand(innerCommand);
+
+                            if (innerCommand is CRepeat innerRepeat)
+                            {
+                                currentIndex += innerRepeat.commands.Count(); // Skip the lines of the inner repeat
+                            }
+                        }
+                    }
+                    return cRepeat;
                 default:
                     return null;
             }
         }
+
+        private int CountLeadingSpaces(string line)
+        {
+            int count = 0;
+            foreach (char c in line)
+            {
+                if (c == ' ')
+                    count++;
+                else
+                    break;
+            }
+            return count;
+        }
+
+        private int IndentationLevel(string line)
+        {
+            int leadingSpaces = CountLeadingSpaces(line);
+            return leadingSpaces / 4; // Assuming 4 spaces per indentation level
+        }
+
+
     }
     
     #if DEBUG
