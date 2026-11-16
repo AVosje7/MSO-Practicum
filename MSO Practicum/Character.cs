@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using MSO_Practicum.Exceptions;
 
 namespace MSO_Practicum
 {
@@ -19,6 +20,14 @@ namespace MSO_Practicum
 
         public void Move(int amount)
         {
+            if (IsFacingWall())
+            {
+                throw new ObstacleException("Tried to move into a wall", position);
+            }
+            if (IsFacingEdge())
+            {
+                throw new EdgeException("Tried to move off of the edge of the grid", position);
+            }
             switch (direction)
             {
                 case Direction.East:
@@ -51,6 +60,11 @@ namespace MSO_Practicum
         public bool IsAtEdge()
         {
             return grid.OnEdge();
+        }
+
+        public bool IsFacingEdge()
+        {
+            return grid.FacingEdge();
         }
 
         public bool IsFacingWall()

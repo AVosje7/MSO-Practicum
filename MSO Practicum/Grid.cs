@@ -43,6 +43,25 @@ namespace MSO_Practicum
                    character.position.Y == 0 || character.position.Y == size - 1;
         }
 
+        public bool FacingEdge()
+        {
+            if (size == 0)
+                return false;
+            switch (character.direction)
+            {
+                case Direction.East:
+                    return character.position.X + 1 >= size;
+                case Direction.South:
+                    return character.position.Y + 1 >= size;
+                case Direction.West:
+                    return character.position.X - 1 <= 0;
+                case Direction.North:
+                    return character.position.Y - 1 <= 0;
+                default:
+                    throw new InvalidOperationException("Invalid direction");
+            }
+        }
+
         // Check if the player is facing a wall
         public bool FacingWall()
         {
