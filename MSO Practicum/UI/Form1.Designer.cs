@@ -35,7 +35,6 @@ namespace MSO_Practicum
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonMETRICS = new System.Windows.Forms.Button();
             this.buttonRUN = new System.Windows.Forms.Button();
@@ -57,8 +56,7 @@ namespace MSO_Practicum
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                        this.loadProgramToolStripMenuItem,
-                        this.loadExerciseToolStripMenuItem});
+                        this.loadProgramToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -81,34 +79,26 @@ namespace MSO_Practicum
             // basicToolStripMenuItem
             // 
             this.basicToolStripMenuItem.Name = "basicToolStripMenuItem";
-            this.basicToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.basicToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.basicToolStripMenuItem.Text = "Basic";
             // 
             // advancedToolStripMenuItem
             // 
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // expertToolStripMenuItem
             // 
             this.expertToolStripMenuItem.Name = "expertToolStripMenuItem";
-            this.expertToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.expertToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.expertToolStripMenuItem.Text = "Expert";
             // 
             // fromFileToolStripMenuItem
             // 
             this.fromFileToolStripMenuItem.Name = "fromFileToolStripMenuItem";
-            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.fromFileToolStripMenuItem.Text = "From file";
-            // 
-            // loadExerciseToolStripMenuItem
-            // 
-            this.loadExerciseToolStripMenuItem.AccessibleName = "Load exercise";
-            this.loadExerciseToolStripMenuItem.Name = "loadExerciseToolStripMenuItem";
-            this.loadExerciseToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
-            this.loadExerciseToolStripMenuItem.Text = "Load exercise";
-            this.loadExerciseToolStripMenuItem.Click += new System.EventHandler(this.LoadExerciseToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -249,7 +239,6 @@ namespace MSO_Practicum
         private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem expertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadExerciseToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button buttonMETRICS;
         private System.Windows.Forms.Button buttonRUN;
