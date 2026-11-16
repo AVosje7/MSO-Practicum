@@ -27,14 +27,14 @@ namespace MSO_Practicum
         }
 
         // Gets the metrics of the loaded commands
-        public List<int> GetMetrics()
+        public List<int> GetMetrics(List<Command> inputCommands)
         {
             List<int> metrics = new List<int>();
 
             int maxDepth = 0;
             int totalRepeats = 0;
 
-            foreach (Command command in commands)
+            foreach (Command command in inputCommands)
             {
                 if (command is CRepeat cRepeat)
                 {

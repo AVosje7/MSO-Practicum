@@ -81,18 +81,21 @@ namespace MSO_Practicum
             this.basicToolStripMenuItem.Name = "basicToolStripMenuItem";
             this.basicToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.basicToolStripMenuItem.Text = "Basic";
+            this.basicToolStripMenuItem.Click += new System.EventHandler(this.BasicToolStripMenuItem_Click);
             // 
             // advancedToolStripMenuItem
             // 
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
             this.advancedToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.advancedToolStripMenuItem.Text = "Advanced";
+            this.advancedToolStripMenuItem.Click += new System.EventHandler(this.AdvancedToolStripMenuItem_Click);
             // 
             // expertToolStripMenuItem
             // 
             this.expertToolStripMenuItem.Name = "expertToolStripMenuItem";
             this.expertToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.expertToolStripMenuItem.Text = "Expert";
+            this.expertToolStripMenuItem.Click += new System.EventHandler(this.ExpertToolStripMenuItem_Click);
             // 
             // fromFileToolStripMenuItem
             // 
