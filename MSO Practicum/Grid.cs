@@ -8,20 +8,21 @@ namespace MSO_Practicum
     {
         public Character character { get; private set; }
         public int size { get; private set; } = 0;
-        private bool[][] walls;
+        private Tile[,] walls;
 
         public Grid()
         {
             character = new Character(this, Direction.East, new Point(0, 0));
-            walls = new bool[0][];
+            walls = new Tile[0,0];
         }
 
-        public void SetGrid(int size, bool[][] walls)
+        public void SetGrid(int size, Tile[,] walls)
         {
             this.size = size;
             this.walls = walls;
         }
 
+        // Executes a list of commands on the player
         public List<String> ExecuteCommands(List<Command> commands)
         {
             var results = new List<String>();
@@ -33,6 +34,7 @@ namespace MSO_Practicum
             return results;
         }
 
+        // Check if the player is on the edge
         public bool OnEdge()
         {
             if (size == 0)
@@ -41,6 +43,7 @@ namespace MSO_Practicum
                    character.position.Y == 0 || character.position.Y == size - 1;
         }
 
+        // Check if the player is facing a wall
         public bool FacingWall()
         {
             if (walls.Length == 0)
@@ -48,13 +51,13 @@ namespace MSO_Practicum
             switch (character.direction)
             {
                 case Direction.East:
-                    return walls[character.position.Y][character.position.X + 1];
+                    return walls[character.position.Y, character.position.X + 1] == Tile.Wall;
                 case Direction.South:
-                    return walls[character.position.Y + 1][character.position.X];
+                    return walls[character.position.Y + 1, character.position.X] == Tile.Wall;
                 case Direction.West:
-                    return walls[character.position.Y][character.position.X - 1];
+                    return walls[character.position.Y, character.position.X - 1] == Tile.Wall;
                 case Direction.North:
-                    return walls[character.position.Y - 1][character.position.X];
+                    return walls[character.position.Y - 1, character.position.X] == Tile.Wall;
                 default:
                     throw new InvalidOperationException("Invalid direction");
             }
