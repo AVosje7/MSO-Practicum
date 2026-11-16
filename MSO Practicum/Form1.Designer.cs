@@ -31,20 +31,20 @@ namespace MSO_Practicum
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loadProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.basicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.InputBox = new System.Windows.Forms.TextBox();
-            this.OutputBox = new System.Windows.Forms.TextBox();
-            this.buttonRUN = new System.Windows.Forms.Button();
             this.buttonMETRICS = new System.Windows.Forms.Button();
+            this.buttonRUN = new System.Windows.Forms.Button();
+            this.OutputBox = new System.Windows.Forms.TextBox();
+            this.InputBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.gridPanel = new System.Windows.Forms.Panel();
+            this.resultstatus = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -67,6 +67,7 @@ namespace MSO_Practicum
             // 
             // loadProgramToolStripMenuItem
             // 
+            this.loadProgramToolStripMenuItem.AccessibleName = "Load program";
             this.loadProgramToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                         this.basicToolStripMenuItem,
                         this.advancedToolStripMenuItem,
@@ -76,13 +77,6 @@ namespace MSO_Practicum
             this.loadProgramToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
             this.loadProgramToolStripMenuItem.Text = "Load program";
             this.loadProgramToolStripMenuItem.Click += new System.EventHandler(this.LoadProgramToolStripMenuItem_Click);
-            // 
-            // loadExerciseToolStripMenuItem
-            // 
-            this.loadExerciseToolStripMenuItem.Name = "loadExerciseToolStripMenuItem";
-            this.loadExerciseToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
-            this.loadExerciseToolStripMenuItem.Text = "Load exercise";
-            this.loadExerciseToolStripMenuItem.Click += new System.EventHandler(this.LoadExerciseToolStripMenuItem_Click);
             // 
             // basicToolStripMenuItem
             // 
@@ -108,6 +102,14 @@ namespace MSO_Practicum
             this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.fromFileToolStripMenuItem.Text = "From file";
             // 
+            // loadExerciseToolStripMenuItem
+            // 
+            this.loadExerciseToolStripMenuItem.AccessibleName = "Load exercise";
+            this.loadExerciseToolStripMenuItem.Name = "loadExerciseToolStripMenuItem";
+            this.loadExerciseToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.loadExerciseToolStripMenuItem.Text = "Load exercise";
+            this.loadExerciseToolStripMenuItem.Click += new System.EventHandler(this.LoadExerciseToolStripMenuItem_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -132,34 +134,17 @@ namespace MSO_Practicum
             this.splitContainer1.SplitterDistance = 403;
             this.splitContainer1.TabIndex = 1;
             // 
-            // openFileDialog1
+            // buttonMETRICS
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
-            // 
-            // InputBox
-            // 
-            this.InputBox.AcceptsTab = true;
-            this.InputBox.BackColor = System.Drawing.Color.DimGray;
-            this.InputBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.InputBox.Location = new System.Drawing.Point(3, 31);
-            this.InputBox.Multiline = true;
-            this.InputBox.Name = "InputBox";
-            this.InputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.InputBox.Size = new System.Drawing.Size(403, 220);
-            this.InputBox.TabIndex = 0;
-            this.InputBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
-            // 
-            // OutputBox
-            // 
-            this.OutputBox.Location = new System.Drawing.Point(0, 372);
-            this.OutputBox.Multiline = true;
-            this.OutputBox.Name = "OutputBox";
-            this.OutputBox.ReadOnly = true;
-            this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.OutputBox.Size = new System.Drawing.Size(400, 75);
-            this.OutputBox.TabIndex = 1;
-            this.OutputBox.TextChanged += new System.EventHandler(this.OutputBox_TextChanged);
+            this.buttonMETRICS.BackColor = System.Drawing.Color.LightCoral;
+            this.buttonMETRICS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMETRICS.Location = new System.Drawing.Point(236, 257);
+            this.buttonMETRICS.Name = "buttonMETRICS";
+            this.buttonMETRICS.Size = new System.Drawing.Size(164, 102);
+            this.buttonMETRICS.TabIndex = 3;
+            this.buttonMETRICS.Text = "Metrics";
+            this.buttonMETRICS.UseVisualStyleBackColor = false;
+            this.buttonMETRICS.Click += new System.EventHandler(this.ButtonMETRICS_Click);
             // 
             // buttonRUN
             // 
@@ -174,49 +159,71 @@ namespace MSO_Practicum
             this.buttonRUN.UseVisualStyleBackColor = false;
             this.buttonRUN.Click += new System.EventHandler(this.ButtonRUN_Click);
             // 
-            // buttonMETRICS
+            // OutputBox
             // 
-            this.buttonMETRICS.BackColor = System.Drawing.Color.LightCoral;
-            this.buttonMETRICS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMETRICS.Location = new System.Drawing.Point(236, 257);
-            this.buttonMETRICS.Name = "buttonMETRICS";
-            this.buttonMETRICS.Size = new System.Drawing.Size(164, 102);
-            this.buttonMETRICS.TabIndex = 3;
-            this.buttonMETRICS.Text = "Metrics";
-            this.buttonMETRICS.UseVisualStyleBackColor = false;
-            this.buttonMETRICS.Click += new System.EventHandler(this.ButtonMETRICS_Click);
+            this.OutputBox.Location = new System.Drawing.Point(0, 372);
+            this.OutputBox.Multiline = true;
+            this.OutputBox.Name = "OutputBox";
+            this.OutputBox.ReadOnly = true;
+            this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputBox.Size = new System.Drawing.Size(400, 75);
+            this.OutputBox.TabIndex = 1;
+            this.OutputBox.TextChanged += new System.EventHandler(this.OutputBox_TextChanged);
+            // 
+            // InputBox
+            // 
+            this.InputBox.AcceptsTab = true;
+            this.InputBox.BackColor = System.Drawing.Color.DimGray;
+            this.InputBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.InputBox.Location = new System.Drawing.Point(3, 31);
+            this.InputBox.Multiline = true;
+            this.InputBox.Name = "InputBox";
+            this.InputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.InputBox.Size = new System.Drawing.Size(403, 220);
+            this.InputBox.TabIndex = 0;
+            this.InputBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.gridPanel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.resultstatus, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 31);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.72115F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.27885F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.769231F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.23077F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 416);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(384, 100);
-            this.panel1.TabIndex = 0;
             // 
             // gridPanel
             // 
             this.gridPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridPanel.Location = new System.Drawing.Point(3, 110);
+            this.gridPanel.Location = new System.Drawing.Point(3, 27);
             this.gridPanel.Name = "gridPanel";
-            this.gridPanel.Size = new System.Drawing.Size(384, 303);
+            this.gridPanel.Size = new System.Drawing.Size(384, 386);
             this.gridPanel.TabIndex = 1;
+            this.gridPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.GridPanel_Paint_1);
+            // 
+            // resultstatus
+            // 
+            this.resultstatus.AutoSize = true;
+            this.resultstatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.resultstatus.Location = new System.Drawing.Point(3, 0);
+            this.resultstatus.Name = "resultstatus";
+            this.resultstatus.Size = new System.Drawing.Size(384, 16);
+            this.resultstatus.TabIndex = 2;
+            this.resultstatus.Text = "label1";
+            this.resultstatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.resultstatus.Click += new System.EventHandler(this.Result_status_Click);
+            this.resultstatus.Paint += new System.Windows.Forms.PaintEventHandler(this.Result_status_Paint);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
             // 
             // Form1
             // 
@@ -236,6 +243,7 @@ namespace MSO_Practicum
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -255,8 +263,8 @@ namespace MSO_Practicum
         private System.Windows.Forms.TextBox OutputBox;
         private System.Windows.Forms.TextBox InputBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel gridPanel;
+        private System.Windows.Forms.Label resultstatus;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

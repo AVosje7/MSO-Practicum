@@ -69,5 +69,30 @@ namespace MSO_Practicum
         {
 
         }
+
+        private void GridPanel_Paint_1(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+
+        }
+
+        private void Result_status_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+
+        }
+
+        private void Result_status_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void LoadProgramToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void LoadExerciseToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
