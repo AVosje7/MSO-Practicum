@@ -1,4 +1,4 @@
-namespace MSOPracticum
+namespace MSO_Practicum
 {
     public enum Direction
     {

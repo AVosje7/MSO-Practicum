@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MSOPracticum
+namespace MSO_Practicum
 {
     public class CTurn : Command
     {
