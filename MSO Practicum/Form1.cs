@@ -10,35 +10,8 @@ namespace MSO_Practicum
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, System.EventArgs e)
-        {
 
-        }
 
-        private void MenuStrip1_ItemClicked(object sender, System.Windows.Forms.ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void Panel2_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
-
-        private void Panel1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
-
-        private void OpenFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
 
         private void ButtonRUN_Click(object sender, System.EventArgs e)
         {
@@ -50,40 +23,11 @@ namespace MSO_Practicum
 
         }
 
-        private void OutputBox_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void Panel2_Paint_1(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
-
-        private void Panel1_Paint_1(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
-
-        private void TableLayoutPanel2_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
-
         private void GridPanel_Paint_1(object sender, System.Windows.Forms.PaintEventArgs e)
         {
 
         }
 
-        private void Result_status_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
-        }
-
-        private void Result_status_Click(object sender, System.EventArgs e)
-        {
-
-        }
 
         private void LoadProgramToolStripMenuItem_Click(object sender, System.EventArgs e)
         {

@@ -123,13 +123,11 @@ namespace MSO_Practicum
             this.splitContainer1.Panel1.Controls.Add(this.buttonRUN);
             this.splitContainer1.Panel1.Controls.Add(this.OutputBox);
             this.splitContainer1.Panel1.Controls.Add(this.InputBox);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint_1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint_1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 403;
             this.splitContainer1.TabIndex = 1;
@@ -168,7 +166,6 @@ namespace MSO_Practicum
             this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.OutputBox.Size = new System.Drawing.Size(400, 75);
             this.OutputBox.TabIndex = 1;
-            this.OutputBox.TextChanged += new System.EventHandler(this.OutputBox_TextChanged);
             // 
             // InputBox
             // 
@@ -181,7 +178,6 @@ namespace MSO_Practicum
             this.InputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.InputBox.Size = new System.Drawing.Size(403, 220);
             this.InputBox.TabIndex = 0;
-            this.InputBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -217,13 +213,12 @@ namespace MSO_Practicum
             this.resultstatus.TabIndex = 2;
             this.resultstatus.Text = "label1";
             this.resultstatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.resultstatus.Click += new System.EventHandler(this.Result_status_Click);
-            this.resultstatus.Paint += new System.Windows.Forms.PaintEventHandler(this.Result_status_Paint);
+
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
+
             // 
             // Form1
             // 
