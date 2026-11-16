@@ -4,7 +4,7 @@ namespace MSO_Practicum
     public class Interpreter
     {
         private FileReader fileReader;
-        private List<String> lines;
+        public List<String> lines { get; private set; }
         public List<Command> commands { get; private set; }
 
         public Interpreter()
@@ -23,15 +23,17 @@ namespace MSO_Practicum
         }
 
         // Gets the metrics of the loaded commands
-        public List<int> GetMetrics()
+        public List<int> GetMetrics(List<Command> inputCommands)
         {
             List<int> metrics = new List<int>();
 
+            int lineAmount = 0;
             int maxDepth = 0;
             int totalRepeats = 0;
 
-            foreach (Command command in commands)
+            foreach (Command command in inputCommands)
             {
+                lineAmount += command.GetCount();
                 if (command is CRepeat cRepeat)
                 {
                     totalRepeats += cRepeat.CountRepeats();
@@ -48,7 +50,7 @@ namespace MSO_Practicum
                 }
             }
 
-            metrics.Add(lines.Count);
+            metrics.Add(lineAmount);
             metrics.Add(maxDepth);
             metrics.Add(totalRepeats);
 
@@ -56,11 +58,16 @@ namespace MSO_Practicum
         }
 
         // Transforms the strings into commands for the character
-        private List<Command> InterpretLines(List<String> lines)
+        public List<Command> InterpretLines(List<String> lines)
         {
             List<Command> commands = new List<Command>();
             for (int i = 0; i < lines.Count;)
             {
+                if (string.IsNullOrWhiteSpace(lines[i]))
+                {
+                    i++;
+                    continue;
+                }
                 Command command = InterpretLine(lines[i], lines, i);
                 if (command != null)
                 {

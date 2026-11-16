@@ -9,4 +9,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="Programs\*.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Bob_Doodle.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
