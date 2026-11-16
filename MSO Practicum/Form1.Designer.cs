@@ -1,38 +1,262 @@
-﻿namespace MSO_Practicum;
-
-partial class Form1
+namespace MSO_Practicum
 {
-    /// <summary>
-    ///  Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
-
-    /// <summary>
-    ///  Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
+    public partial class Form1 : System.Windows.Forms.Form
     {
-        if (disposing && (components != null))
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            components.Dispose();
+            if (disposing && (this.components != null))
+            {
+                this.components.Dispose();
+            }
+            base.Dispose(disposing);
         }
-        base.Dispose(disposing);
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.loadProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.InputBox = new System.Windows.Forms.TextBox();
+            this.OutputBox = new System.Windows.Forms.TextBox();
+            this.buttonRUN = new System.Windows.Forms.Button();
+            this.buttonMETRICS = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.gridPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                        this.loadProgramToolStripMenuItem,
+                        this.loadExerciseToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // loadProgramToolStripMenuItem
+            // 
+            this.loadProgramToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                        this.basicToolStripMenuItem,
+                        this.advancedToolStripMenuItem,
+                        this.expertToolStripMenuItem,
+                        this.fromFileToolStripMenuItem});
+            this.loadProgramToolStripMenuItem.Name = "loadProgramToolStripMenuItem";
+            this.loadProgramToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
+            this.loadProgramToolStripMenuItem.Text = "Load program";
+            this.loadProgramToolStripMenuItem.Click += new System.EventHandler(this.LoadProgramToolStripMenuItem_Click);
+            // 
+            // loadExerciseToolStripMenuItem
+            // 
+            this.loadExerciseToolStripMenuItem.Name = "loadExerciseToolStripMenuItem";
+            this.loadExerciseToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.loadExerciseToolStripMenuItem.Text = "Load exercise";
+            this.loadExerciseToolStripMenuItem.Click += new System.EventHandler(this.LoadExerciseToolStripMenuItem_Click);
+            // 
+            // basicToolStripMenuItem
+            // 
+            this.basicToolStripMenuItem.Name = "basicToolStripMenuItem";
+            this.basicToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.basicToolStripMenuItem.Text = "Basic";
+            // 
+            // advancedToolStripMenuItem
+            // 
+            this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.advancedToolStripMenuItem.Text = "Advanced";
+            // 
+            // expertToolStripMenuItem
+            // 
+            this.expertToolStripMenuItem.Name = "expertToolStripMenuItem";
+            this.expertToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.expertToolStripMenuItem.Text = "Expert";
+            // 
+            // fromFileToolStripMenuItem
+            // 
+            this.fromFileToolStripMenuItem.Name = "fromFileToolStripMenuItem";
+            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.fromFileToolStripMenuItem.Text = "From file";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.splitContainer1.Panel1.Controls.Add(this.buttonMETRICS);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonRUN);
+            this.splitContainer1.Panel1.Controls.Add(this.OutputBox);
+            this.splitContainer1.Panel1.Controls.Add(this.InputBox);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint_1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint_1);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.SplitterDistance = 403;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
+            // 
+            // InputBox
+            // 
+            this.InputBox.AcceptsTab = true;
+            this.InputBox.BackColor = System.Drawing.Color.DimGray;
+            this.InputBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.InputBox.Location = new System.Drawing.Point(3, 31);
+            this.InputBox.Multiline = true;
+            this.InputBox.Name = "InputBox";
+            this.InputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.InputBox.Size = new System.Drawing.Size(403, 220);
+            this.InputBox.TabIndex = 0;
+            this.InputBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            // 
+            // OutputBox
+            // 
+            this.OutputBox.Location = new System.Drawing.Point(0, 372);
+            this.OutputBox.Multiline = true;
+            this.OutputBox.Name = "OutputBox";
+            this.OutputBox.ReadOnly = true;
+            this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputBox.Size = new System.Drawing.Size(400, 75);
+            this.OutputBox.TabIndex = 1;
+            this.OutputBox.TextChanged += new System.EventHandler(this.OutputBox_TextChanged);
+            // 
+            // buttonRUN
+            // 
+            this.buttonRUN.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonRUN.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRUN.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.buttonRUN.Location = new System.Drawing.Point(3, 257);
+            this.buttonRUN.Name = "buttonRUN";
+            this.buttonRUN.Size = new System.Drawing.Size(164, 102);
+            this.buttonRUN.TabIndex = 2;
+            this.buttonRUN.Text = "Run";
+            this.buttonRUN.UseVisualStyleBackColor = false;
+            this.buttonRUN.Click += new System.EventHandler(this.ButtonRUN_Click);
+            // 
+            // buttonMETRICS
+            // 
+            this.buttonMETRICS.BackColor = System.Drawing.Color.LightCoral;
+            this.buttonMETRICS.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMETRICS.Location = new System.Drawing.Point(236, 257);
+            this.buttonMETRICS.Name = "buttonMETRICS";
+            this.buttonMETRICS.Size = new System.Drawing.Size(164, 102);
+            this.buttonMETRICS.TabIndex = 3;
+            this.buttonMETRICS.Text = "Metrics";
+            this.buttonMETRICS.UseVisualStyleBackColor = false;
+            this.buttonMETRICS.Click += new System.EventHandler(this.ButtonMETRICS_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.gridPanel, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 31);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.72115F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.27885F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 416);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(384, 100);
+            this.panel1.TabIndex = 0;
+            // 
+            // gridPanel
+            // 
+            this.gridPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridPanel.Location = new System.Drawing.Point(3, 110);
+            this.gridPanel.Name = "gridPanel";
+            this.gridPanel.Size = new System.Drawing.Size(384, 303);
+            this.gridPanel.TabIndex = 1;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.splitContainer1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem loadProgramToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem basicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem expertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fromFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadExerciseToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button buttonMETRICS;
+        private System.Windows.Forms.Button buttonRUN;
+        private System.Windows.Forms.TextBox OutputBox;
+        private System.Windows.Forms.TextBox InputBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel gridPanel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
-
-    #region Windows Form Designer generated code
-
-    /// <summary>
-    ///  Required method for Designer support - do not modify
-    ///  the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
-        components = new System.ComponentModel.Container();
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
-        Text = "Form1";
-    }
-
-    #endregion
 }
