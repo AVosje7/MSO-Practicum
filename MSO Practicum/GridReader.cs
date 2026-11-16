@@ -12,7 +12,7 @@ namespace MSO_Practicum
         public Tile[,] GetGrid()
         {
             List<String> lines = GetLines();
-            Tile[,] tiles = new Tile[lines.Count, lines[0].Length]; 
+            Tile[,] tiles = new Tile[lines.Count, lines.Count]; //Assume the grid is always square
             
             for (int i = 0; i < lines.Count(); i++)
             {

@@ -60,7 +60,7 @@ namespace MSO_Practicum
         }
 
         // Transforms the strings into commands for the character
-        private List<Command> InterpretLines(List<String> lines)
+        public List<Command> InterpretLines(List<String> lines)
         {
             List<Command> commands = new List<Command>();
             for (int i = 0; i < lines.Count;)

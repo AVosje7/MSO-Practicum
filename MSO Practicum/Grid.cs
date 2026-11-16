@@ -6,6 +6,7 @@ namespace MSO_Practicum
 {
     public class Grid
     {
+        private GridReader gridReader;
         public Character character { get; private set; }
         public int size { get; private set; } = 0;
         private Tile[,] walls;
@@ -16,10 +17,11 @@ namespace MSO_Practicum
             walls = new Tile[0,0];
         }
 
-        public void SetGrid(int size, Tile[,] walls)
+        public void ReadGrid(String filePath)
         {
-            this.size = size;
-            this.walls = walls;
+            gridReader.LoadFile(filePath);
+            walls = gridReader.GetGrid();
+            size = walls.GetLength(0);
         }
 
         // Executes a list of commands on the player
