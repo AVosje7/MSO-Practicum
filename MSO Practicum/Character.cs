@@ -28,6 +28,7 @@ namespace MSO_Practicum
             {
                 throw new EdgeException("Tried to move off of the edge of the grid", position);
             }
+            Point previousPosition = position;
             switch (direction)
             {
                 case Direction.East:
@@ -43,6 +44,7 @@ namespace MSO_Practicum
                     position = new Point(position.X, position.Y - amount);
                     break;
             }
+            grid.RecordPosition(position);
         }
 
         public void Turn(bool clockwise)

@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using MSO_Practicum.Exceptions;
 
 namespace MSO_Practicum
 {
@@ -26,7 +27,18 @@ namespace MSO_Practicum
 
         private void ButtonRUN_Click(object sender, System.EventArgs e)
         {
-            SetOutputText(facade.Run(InputBox.Text));
+            try
+            {
+                SetOutputText(facade.Run(InputBox.Text));
+            }
+            catch (ObstacleException ex)
+            {
+                SetOutputText(ex.Message);
+            }
+            catch (EdgeException ex)
+            {
+                SetOutputText(ex.Message);
+            }
             gridPanel.Invalidate();
         }
 
@@ -73,6 +85,9 @@ namespace MSO_Practicum
 
         private void LoadGridToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            openFileDialog1.InitialDirectory =
+                Path.Combine(AppContext.BaseDirectory, "Programs");
+            openFileDialog1.FileName = string.Empty;
             if (openFileDialog1.ShowDialog(this) != DialogResult.OK)
                 return;
 
@@ -84,6 +99,9 @@ namespace MSO_Practicum
         {
             openFileDialog1.Title = "Load program";
             openFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.InitialDirectory =
+                Path.Combine(AppContext.BaseDirectory, "Programs");
+            openFileDialog1.FileName = string.Empty;
 
             if (openFileDialog1.ShowDialog(this) != DialogResult.OK)
                 return;

@@ -10,11 +10,13 @@ namespace MSO_Practicum
         public Character character { get; private set; }
         public int size { get; private set; } = 0;
         private Tile[,] walls;
+        private readonly List<Point> movementPath = new List<Point>();
 
         public Grid()
         {
             character = new Character(this, Direction.East, new Point(0, 0));
-            walls = new Tile[0,0];
+            size = 5;
+            walls = new Tile[size, size];
             gridReader = new GridReader();
         }
 
@@ -88,6 +90,19 @@ namespace MSO_Practicum
         public void ResetCharacter()
         {
             character = new Character(this, Direction.East, new Point(0, 0));
+            movementPath.Clear();
+            movementPath.Add(character.position);
+        }
+
+        public void StartPath()
+        {
+            movementPath.Clear();
+            movementPath.Add(character.position);
+        }
+
+        internal void RecordPosition(Point position)
+        {
+            movementPath.Add(position);
         }
 
         public void Draw(Graphics graphics, Rectangle bounds)
@@ -113,6 +128,23 @@ namespace MSO_Practicum
 
                     graphics.FillRectangle(fill, cell);
                     graphics.DrawRectangle(Pens.Black, cell);
+                }
+            }
+
+            if (movementPath.Count > 1)
+            {
+                Point[] pathPoints = new Point[movementPath.Count];
+                for (int i = 0; i < movementPath.Count; i++)
+                {
+                    Point position = movementPath[i];
+                    pathPoints[i] = new Point(
+                        left + position.X * cellSize + cellSize / 2,
+                        top + position.Y * cellSize + cellSize / 2);
+                }
+
+                using (Pen pathPen = new Pen(Color.Red, Math.Max(2f, cellSize / 10f)))
+                {
+                    graphics.DrawLines(pathPen, pathPoints);
                 }
             }
 

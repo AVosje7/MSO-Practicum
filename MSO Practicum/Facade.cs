@@ -22,6 +22,7 @@ namespace MSO_Practicum
         public string Run(string inputText)
         {
             List<Command> commands = InterpretInput(inputText);
+            grid.StartPath();
             List<String> output = grid.ExecuteCommands(commands);
             return String.Join(", ", output);
         }
