@@ -14,6 +14,7 @@ namespace MSO_Practicum
         public Grid()
         {
             character = new Character(this, Direction.East, new Point(0, 0));
+            walls = new bool[0][];
         }
 
         public void SetGrid(int size, bool[][] walls)
@@ -43,7 +44,7 @@ namespace MSO_Practicum
 
         public bool FacingWall()
         {
-            if (walls == null || walls.Length == 0)
+            if (walls.Length == 0)
                 return false; // If the walls are not set, we cannot be facing a wall.
             switch (character.direction)
             {
