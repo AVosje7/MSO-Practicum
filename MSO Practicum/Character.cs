@@ -7,11 +7,13 @@ namespace MSOPracticum
 {
     public class Character
     {
+        private Grid grid;
         public Direction direction { get; private set; }
         public Point position { get; private set; }
 
-        public Character(Direction direction, Point position)
+        public Character(Grid grid, Direction direction, Point position)
         {
+            this.grid = grid;
             this.direction = direction;
             this.position = position;
         }
@@ -47,6 +49,16 @@ namespace MSOPracticum
             }
         }
 
+        public bool IsAtEdge()
+        {
+            return grid.OnEdge();
+        }
+
+        public bool IsFacingWall()
+        {
+            return grid.FacingWall();
+        }
+
         public override string ToString()
         {
             return $"({position.X},{position.Y}) facing {direction}";
@@ -58,7 +70,7 @@ namespace MSOPracticum
 public class CharacterTests
 {
     private static Character At(Direction dir, int x = 0, int y = 0) =>
-        new Character(dir, new Point(x, y));
+        new Character(new Grid(), dir, new Point(x, y));
 
     [Theory]
     [InlineData(Direction.East, 3, 0)]

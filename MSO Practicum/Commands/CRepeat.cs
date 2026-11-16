@@ -32,6 +32,12 @@ namespace MSOPracticum
                     if (depth > maxDepth)
                         maxDepth = depth;
                 }
+                if (command is CRepeatUntil cRepeatUntil)
+                {
+                    int depth = cRepeatUntil.GetDepth();
+                    if (depth > maxDepth)
+                        maxDepth = depth;
+                }
             }
             return maxDepth + 1;
         }
@@ -59,6 +65,8 @@ namespace MSOPracticum
             {
                 if (c is CRepeat inner)
                     count += inner.CountRepeats();
+                if (c is CRepeatUntil innerUntil)
+                    count += innerUntil.CountRepeats();
             }
             return count;
         }
@@ -68,7 +76,7 @@ namespace MSOPracticum
     public class CRepeatTests
     {
         private static Character Start() =>
-            new Character(Direction.East, new Point(0, 0));
+            new Character(new Grid(), Direction.East, new Point(0, 0));
 
 
 
