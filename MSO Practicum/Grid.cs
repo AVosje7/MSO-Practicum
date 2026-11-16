@@ -15,6 +15,7 @@ namespace MSO_Practicum
         {
             character = new Character(this, Direction.East, new Point(0, 0));
             walls = new Tile[0,0];
+            gridReader = new GridReader();
         }
 
         public void ReadGrid(String filePath)
@@ -82,6 +83,47 @@ namespace MSO_Practicum
                 default:
                     throw new InvalidOperationException("Invalid direction");
             }
+        }
+
+        public void ResetCharacter()
+        {
+            character = new Character(this, Direction.East, new Point(0, 0));
+        }
+
+        public void Draw(Graphics graphics, Rectangle bounds)
+        {
+            if (size == 0)
+                return;
+
+            int cellSize = Math.Min(bounds.Width / size, bounds.Height / size);
+            if (cellSize == 0)
+                return;
+
+            int left = bounds.Left + (bounds.Width - size * cellSize) / 2;
+            int top = bounds.Top + (bounds.Height - size * cellSize) / 2;
+
+            for (int y = 0; y < size; y++)
+            {
+                for (int x = 0; x < size; x++)
+                {
+                    var cell = new Rectangle(left + x * cellSize, top + y * cellSize, cellSize, cellSize);
+                    Brush fill = walls[y, x] == Tile.Wall ? Brushes.DimGray
+                               : walls[y, x] == Tile.Goal ? Brushes.LightGreen
+                               : Brushes.White;
+
+                    graphics.FillRectangle(fill, cell);
+                    graphics.DrawRectangle(Pens.Black, cell);
+                }
+            }
+
+            int padding = cellSize / 4;
+            var characterCell = new Rectangle(
+                left + character.position.X * cellSize + padding,
+                top + character.position.Y * cellSize + padding,
+                cellSize - 2 * padding,
+                cellSize - 2 * padding);
+
+            graphics.FillEllipse(Brushes.DodgerBlue, characterCell);
         }
 
         public override string ToString()

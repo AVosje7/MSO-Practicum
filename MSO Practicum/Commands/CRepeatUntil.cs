@@ -9,6 +9,7 @@ namespace MSO_Practicum
     {
         private Condition condition;
         public List<Command> commands { get; private set; }
+        private int times = 0;
 
         public CRepeatUntil(Condition condition)
         {
@@ -46,6 +47,7 @@ namespace MSO_Practicum
         {
             while (condition.Check(character))
             {
+                times++;
                 foreach (Command command in commands)
                 {
                     command.Run(character);
@@ -65,7 +67,8 @@ namespace MSO_Practicum
 
         public override string ToString()
         {
-            return string.Join(", ", commands.Select(c => c.ToString())) + ".";
+            string body = string.Join(", ", commands);
+            return string.Join(", ", Enumerable.Repeat(body, times)) + ".";
         }
 
         public int CountRepeats()

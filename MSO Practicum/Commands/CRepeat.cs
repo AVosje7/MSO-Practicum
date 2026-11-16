@@ -64,7 +64,8 @@ namespace MSO_Practicum
 
         public override string ToString()
         {
-            return string.Join(", ", commands.Select(c => c.ToString())) + ".";
+            string body = string.Join(", ", commands);
+            return string.Join(", ", Enumerable.Repeat(body, times)) + ".";
         }
 
         public int CountRepeats()
