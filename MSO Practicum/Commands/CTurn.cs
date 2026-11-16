@@ -17,6 +17,11 @@ namespace MSO_Practicum
             character.Turn(clockwise);
         }
 
+        public int GetCount()
+        {
+            return 1;
+        }
+
         public override string ToString()
         {
             return $"Turn {(clockwise ? "right" : "left")}";

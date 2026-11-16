@@ -44,7 +44,23 @@ namespace MSO_Practicum
         
         public void Run(Character character)
         {
-            
+            while (condition.Check(character))
+            {
+                foreach (Command command in commands)
+                {
+                    command.Run(character);
+                }
+            }
+        }
+
+        public int GetCount()
+        {
+            int count = 1;
+            foreach (Command c in commands)
+            {
+                count += c.GetCount();
+            }
+            return count;
         }
 
         public override string ToString()

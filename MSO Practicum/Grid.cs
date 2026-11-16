@@ -22,6 +22,7 @@ namespace MSO_Practicum
             this.walls = walls;
         }
 
+        // Executes a list of commands on the player
         public List<String> ExecuteCommands(List<Command> commands)
         {
             var results = new List<String>();
@@ -33,6 +34,7 @@ namespace MSO_Practicum
             return results;
         }
 
+        // Check if the player is on the edge
         public bool OnEdge()
         {
             if (size == 0)
@@ -41,6 +43,7 @@ namespace MSO_Practicum
                    character.position.Y == 0 || character.position.Y == size - 1;
         }
 
+        // Check if the player is facing a wall
         public bool FacingWall()
         {
             if (walls.Length == 0)

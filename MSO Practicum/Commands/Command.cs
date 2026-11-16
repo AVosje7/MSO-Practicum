@@ -7,6 +7,8 @@ namespace MSO_Practicum
     {
         public void Run(Character character);
 
+        public int GetCount();
+
         public String ToString();
     }
 }

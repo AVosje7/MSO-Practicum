@@ -7,6 +7,8 @@ namespace MSO_Practicum
 {
     public class GridReader : FileReader
     {
+
+        // Reads a grid of tiles from the file
         public Tile[,] GetGrid()
         {
             List<String> lines = GetLines();
