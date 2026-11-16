@@ -12,6 +12,7 @@ namespace MSO_Practicum
         {
             InitializeComponent();
             facade = new Facade();
+            FormClosed += Form1_FormClosed;
             InputBox.TextChanged += InputBox_TextChanged;
         }
 
@@ -33,11 +34,11 @@ namespace MSO_Practicum
             }
             catch (ObstacleException ex)
             {
-                SetOutputText(ex.Message);
+                SetOutputText(ex.Message + ", Position:" + ex.position);
             }
             catch (EdgeException ex)
             {
-                SetOutputText(ex.Message);
+                SetOutputText(ex.Message + ", Position:" + ex.position);
             }
             gridPanel.Invalidate();
         }
@@ -81,6 +82,11 @@ namespace MSO_Practicum
         {
             facade.ResetCharacter();
             gridPanel.Invalidate();
+        }
+
+        private void Form1_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            facade.Dispose();
         }
 
         private void LoadGridToolStripMenuItem_Click(object sender, System.EventArgs e)

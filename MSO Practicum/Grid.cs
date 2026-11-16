@@ -1,23 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 
 namespace MSO_Practicum
 {
-    public class Grid
+    public class Grid : IDisposable
     {
         private GridReader gridReader;
         public Character character { get; private set; }
         public int size { get; private set; } = 0;
         private Tile[,] walls;
         private readonly List<Point> movementPath = new List<Point>();
+        private readonly Image characterImage;
 
         public Grid()
         {
             character = new Character(this, Direction.East, new Point(0, 0));
-            size = 5;
+            size = 10;
             walls = new Tile[size, size];
             gridReader = new GridReader();
+            characterImage = Image.FromFile(Path.Combine(AppContext.BaseDirectory, "Bob_Doodle.png"));
         }
 
         public void ReadGrid(String filePath)
@@ -59,9 +62,9 @@ namespace MSO_Practicum
                 case Direction.South:
                     return character.position.Y + 1 >= size;
                 case Direction.West:
-                    return character.position.X - 1 <= 0;
+                    return character.position.X <= 0;
                 case Direction.North:
-                    return character.position.Y - 1 <= 0;
+                    return character.position.Y <= 0;
                 default:
                     throw new InvalidOperationException("Invalid direction");
             }
@@ -72,19 +75,22 @@ namespace MSO_Practicum
         {
             if (walls.Length == 0)
                 return false; // If the walls are not set, we cannot be facing a wall.
+
+            Point next = character.position;
             switch (character.direction)
             {
-                case Direction.East:
-                    return walls[character.position.Y, character.position.X + 1] == Tile.Wall;
-                case Direction.South:
-                    return walls[character.position.Y + 1, character.position.X] == Tile.Wall;
-                case Direction.West:
-                    return walls[character.position.Y, character.position.X - 1] == Tile.Wall;
-                case Direction.North:
-                    return walls[character.position.Y - 1, character.position.X] == Tile.Wall;
-                default:
-                    throw new InvalidOperationException("Invalid direction");
+                case Direction.East:  next.X++; break;
+                case Direction.South: next.Y++; break;
+                case Direction.West:  next.X--; break;
+                case Direction.North: next.Y--; break;
+                default: throw new InvalidOperationException("Invalid direction");
             }
+
+            if (next.X < 0 || next.X >= walls.GetLength(1) ||
+                next.Y < 0 || next.Y >= walls.GetLength(0))
+                return false;
+
+            return walls[next.Y, next.X] == Tile.Wall;
         }
 
         public void ResetCharacter()
@@ -148,14 +154,29 @@ namespace MSO_Practicum
                 }
             }
 
-            int padding = cellSize / 4;
+            int padding = cellSize / 20;
             var characterCell = new Rectangle(
                 left + character.position.X * cellSize + padding,
                 top + character.position.Y * cellSize + padding,
                 cellSize - 2 * padding,
                 cellSize - 2 * padding);
 
-            graphics.FillEllipse(Brushes.DodgerBlue, characterCell);
+            float imageScale = Math.Min(
+                (float)characterCell.Width / characterImage.Width,
+                (float)characterCell.Height / characterImage.Height);
+            int imageWidth = (int)(characterImage.Width * imageScale);
+            int imageHeight = (int)(characterImage.Height * imageScale);
+            var imageBounds = new Rectangle(
+                characterCell.X + (characterCell.Width - imageWidth) / 2,
+                characterCell.Y + (characterCell.Height - imageHeight) / 2,
+                imageWidth,
+                imageHeight);
+            graphics.DrawImage(characterImage, imageBounds);
+        }
+
+        public void Dispose()
+        {
+            characterImage.Dispose();
         }
 
         public override string ToString()

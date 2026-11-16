@@ -20,29 +20,31 @@ namespace MSO_Practicum
 
         public void Move(int amount)
         {
-            if (IsFacingWall())
-            {
-                throw new ObstacleException("Tried to move into a wall", position);
-            }
-            if (IsFacingEdge())
-            {
-                throw new EdgeException("Tried to move off of the edge of the grid", position);
-            }
-            Point previousPosition = position;
-            switch (direction)
-            {
-                case Direction.East:
-                    position = new Point(position.X + amount, position.Y);
-                    break;
-                case Direction.South:
-                    position = new Point(position.X, position.Y + amount);
-                    break;
-                case Direction.West:
-                    position = new Point(position.X - amount, position.Y);
-                    break;
-                case Direction.North:
-                    position = new Point(position.X, position.Y - amount);
-                    break;
+            for (int i = 0; i < amount; i++) {
+                if (IsFacingWall())
+                {
+                    throw new ObstacleException("Tried to move into a wall", position);
+                }
+                if (IsFacingEdge())
+                {
+                    throw new EdgeException("Tried to move off of the edge of the grid", position);
+                }
+                Point previousPosition = position;
+                switch (direction)
+                {
+                    case Direction.East:
+                        position = new Point(position.X + 1, position.Y);
+                        break;
+                    case Direction.South:
+                        position = new Point(position.X, position.Y + 1);
+                        break;
+                    case Direction.West:
+                        position = new Point(position.X - 1, position.Y);
+                        break;
+                    case Direction.North:
+                        position = new Point(position.X, position.Y - 1);
+                        break;
+                }
             }
             grid.RecordPosition(position);
         }

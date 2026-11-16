@@ -8,7 +8,7 @@ using System.Windows.Forms.Design;
 
 namespace MSO_Practicum
 {
-    public class Facade
+    public class Facade : IDisposable
     {
         private Interpreter interpreter;
         private Grid grid;
@@ -66,6 +66,11 @@ namespace MSO_Practicum
         public void ResetCharacter()
         {
             grid.ResetCharacter();
+        }
+
+        public void Dispose()
+        {
+            grid.Dispose();
         }
 
         private List<Command> InterpretInput(string inputText)
