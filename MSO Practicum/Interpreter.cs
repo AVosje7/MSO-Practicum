@@ -4,7 +4,7 @@ using Xunit;
 using System.IO;
 using System.Drawing;
 
-namespace MSOPracticum
+namespace MSO_Practicum
 {
     public class Interpreter
     {
@@ -147,7 +147,7 @@ namespace MSOPracticum
 
         private static Character RunAll(Interpreter interpreter)
         {
-            var character = new Character(Direction.East, new Point(0, 0));
+            var character = new Character(new Grid(), Direction.East, new Point(0, 0));
             foreach (Command command in interpreter.commands)
                 command.Run(character);
             return character;

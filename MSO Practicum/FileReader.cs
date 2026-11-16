@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
-namespace MSOPracticum
+namespace MSO_Practicum
 {
     public class FileReader
     {

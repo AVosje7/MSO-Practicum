@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Xunit;
 using System.Drawing;
 
-namespace MSOPracticum
+namespace MSO_Practicum
 {
     public class CMove : Command
     {
@@ -32,7 +32,7 @@ namespace MSOPracticum
         [Fact]
         public void Run_MovesTheCharacterByItsAmount()
         {
-            var c = new Character(Direction.East, new Point(0, 0));
+            var c = new Character(new Grid(), Direction.East, new Point(0, 0));
 
             new CMove(4).Run(c);
 

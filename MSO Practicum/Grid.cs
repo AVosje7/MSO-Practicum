@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Xunit;
 
-namespace MSOPracticum
+namespace MSO_Practicum
 {
     public class Grid
     {
