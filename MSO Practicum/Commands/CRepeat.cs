@@ -52,6 +52,16 @@ namespace MSO_Practicum
             }
         }
 
+        public int GetCount()
+        {
+            int count = 1;
+            foreach (Command c in commands)
+            {
+                count += c.GetCount();
+            }
+            return count;
+        }
+
         public override string ToString()
         {
             return string.Join(", ", commands.Select(c => c.ToString())) + ".";

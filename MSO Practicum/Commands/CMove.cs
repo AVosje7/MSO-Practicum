@@ -18,6 +18,11 @@ namespace MSO_Practicum
             character.Move(amount);
         }
 
+        public int GetCount()
+        {
+            return 1;
+        }
+
         public override string ToString()
         {
             return $"Move {amount}";

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Drawing;
 using Xunit;
+using System.Reflection.Metadata.Ecma335;
 
 namespace MSO_Practicum.Test
 {
@@ -21,6 +22,7 @@ namespace MSO_Practicum.Test
             }
 
             public  void Run(Character character) => action(character);
+            public int GetCount() => 1;
             public override string ToString() => name;
         }
 

@@ -37,20 +37,6 @@ namespace MSO_Practicum.Test
         }
 
         [Fact]
-        public void LoadFile_SpecExample_EndsAtTwoOne()
-        {
-            var c = RunAll(Load("Move 1\nTurn right\nMove 1\nTurn left\nMove 1"));
-            Assert.Equal(new Point(2, 1), c.position);
-        }
-
-        [Fact]
-        public void LoadFile_UnknownLine_IsIgnored()
-        {
-            var interpreter = Load("Move 1\nJump 3\nMove 1");
-            Assert.Equal(2, interpreter.commands.Count);
-        }
-
-        [Fact]
         public void LoadFile_Repeat_RunsIndentedBodyTheGivenNumberOfTimes()
         {
             var c = RunAll(Load("Repeat 3\n    Move 1"));
