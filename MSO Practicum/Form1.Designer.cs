@@ -81,25 +81,25 @@ namespace MSO_Practicum
             // basicToolStripMenuItem
             // 
             this.basicToolStripMenuItem.Name = "basicToolStripMenuItem";
-            this.basicToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.basicToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.basicToolStripMenuItem.Text = "Basic";
             // 
             // advancedToolStripMenuItem
             // 
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // expertToolStripMenuItem
             // 
             this.expertToolStripMenuItem.Name = "expertToolStripMenuItem";
-            this.expertToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.expertToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.expertToolStripMenuItem.Text = "Expert";
             // 
             // fromFileToolStripMenuItem
             // 
             this.fromFileToolStripMenuItem.Name = "fromFileToolStripMenuItem";
-            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.fromFileToolStripMenuItem.Text = "From file";
             // 
             // loadExerciseToolStripMenuItem
@@ -213,12 +213,10 @@ namespace MSO_Practicum
             this.resultstatus.TabIndex = 2;
             this.resultstatus.Text = "label1";
             this.resultstatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-
             // 
             // Form1
             // 

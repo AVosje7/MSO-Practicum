@@ -12,7 +12,6 @@ namespace MSO_Practicum
 
 
 
-
         private void ButtonRUN_Click(object sender, System.EventArgs e)
         {
 
@@ -27,7 +26,6 @@ namespace MSO_Practicum
         {
 
         }
-
 
         private void LoadProgramToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
